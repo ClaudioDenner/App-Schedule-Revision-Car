@@ -5,6 +5,7 @@ import { AppService } from './app.service';
 import { ClientsModule } from './clients/clients.module';
 import { VehiclesModule } from './vehicles/vehicles.module';
 import { SchedulesModule } from './schedules/schedules.module';
+import { Client } from './clients/entities/client.entity';
 
 @Module({
   imports: [
@@ -15,8 +16,8 @@ import { SchedulesModule } from './schedules/schedules.module';
       username: 'admin',
       password: 'admin',
       database: 'scheduleCar',
-      entities: [],
-      synchronize: true,
+      entities: [Client],
+      synchronize: false,
     }),
     ClientsModule,
     VehiclesModule,
