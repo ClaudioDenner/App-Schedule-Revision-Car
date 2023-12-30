@@ -1,6 +1,8 @@
 /* eslint-disable */
 import { DataSource } from 'typeorm';
 
+
+
 const dataSource = new DataSource({
   type: 'postgres',
   host: 'localhost',
@@ -9,6 +11,7 @@ const dataSource = new DataSource({
   password: 'admin',
   database: 'scheduleCar',
   migrations: [`${__dirname}/migrations/**/*.ts`],
+  entities:["src/**/*entity{.ts,.js}"],
 });
 
 export default dataSource;

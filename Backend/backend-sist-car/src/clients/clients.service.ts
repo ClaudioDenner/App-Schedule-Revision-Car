@@ -72,7 +72,7 @@ export class ClientsService {
   async remove(id: number) {
     try {
       const client = await this.clientRepository.delete(id);
-      return { message: 'client deleted with success' };
+      return { message: 'client deleted with success', client };
     } catch (error) {
       throw new HttpException(error.detail, HttpStatus.BAD_REQUEST);
     }

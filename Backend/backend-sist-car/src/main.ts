@@ -13,10 +13,12 @@ async function bootstrap() {
       'In this API, its possible to do schedules and to control dates',
     )
     .setVersion('1.0')
-    .addTag('clients')
+    .addTag('/clients')
+    .addTag('/vehicles')
+    .addTag('/schedules')
     .build();
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api', app, document);
+  SwaggerModule.setup('/', app, document);
 
   await app.listen(3000);
 }

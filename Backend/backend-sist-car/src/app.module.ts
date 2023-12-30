@@ -5,7 +5,9 @@ import { AppService } from './app.service';
 import { ClientsModule } from './clients/clients.module';
 import { VehiclesModule } from './vehicles/vehicles.module';
 import { SchedulesModule } from './schedules/schedules.module';
-import { Client } from './clients/entities/client.entity';
+import { Client } from 'src/clients/entities/client.entity';
+import { Vehicle } from 'src/vehicles/entities/vehicle.entity';
+import { Schedule } from './schedules/entities/schedule.entity';
 
 @Module({
   imports: [
@@ -16,9 +18,10 @@ import { Client } from './clients/entities/client.entity';
       username: 'admin',
       password: 'admin',
       database: 'scheduleCar',
-      entities: [Client],
-      synchronize: false,
+      entities: [Client, Vehicle, Schedule],
+      synchronize: true,
     }),
+    TypeOrmModule.forFeature([Client, Vehicle, Schedule]),
     ClientsModule,
     VehiclesModule,
     SchedulesModule,
