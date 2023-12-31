@@ -8,16 +8,18 @@ import { SchedulesModule } from './schedules/schedules.module';
 import { Client } from 'src/clients/entities/client.entity';
 import { Vehicle } from 'src/vehicles/entities/vehicle.entity';
 import { Schedule } from './schedules/entities/schedule.entity';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
+    ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
-      port: 5432,
-      username: 'admin',
-      password: 'admin',
-      database: 'scheduleCar',
+      host: process.env.DB_HOST,
+      port: +process.env.DB_PORT,
+      username: process.env.DB_USER_NAME,
+      password: process.env.DB_PASS,
+      database: process.env.DB_NAME,
       entities: [Client, Vehicle, Schedule],
       synchronize: true,
     }),
