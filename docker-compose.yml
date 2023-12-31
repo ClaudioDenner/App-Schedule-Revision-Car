@@ -1,8 +1,17 @@
 
 services:
 
+  backend:
+    build: ./backend/backend-sist-car
+    container_name: backend
+    depends_on:
+      - db_pgsql
+    ports:
+      - 3001:3001
+
   db_pgsql:
     image: postgres:15.5-bullseye
+    container_name: db_pgsql
     environment:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: admin
