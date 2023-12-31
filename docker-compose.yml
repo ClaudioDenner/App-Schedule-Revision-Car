@@ -6,6 +6,12 @@ services:
       - db_pgsql
     build: ./backend/backend-sist-car
     container_name: backend
+    environment:
+      DB_HOST: 'db_pgsql'
+      DB_PORT: 5432
+      DB_USER_NAME: 'admin'
+      DB_PASS: 'admin'
+      DB_NAME: 'scheduleCar'
     ports:
       - 3000:3000
 
