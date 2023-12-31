@@ -2,12 +2,12 @@
 services:
 
   backend:
-    build: ./backend/backend-sist-car
-    container_name: backend
     depends_on:
       - db_pgsql
+    build: ./backend/backend-sist-car
+    container_name: backend
     ports:
-      - 3001:3001
+      - 3000:3000
 
   db_pgsql:
     image: postgres:15.5-bullseye
