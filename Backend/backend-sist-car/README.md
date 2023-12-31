@@ -1,9 +1,20 @@
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="25" alt="Nest Logo" /></a>
 </p>
+<p align="center">
+Application build in Nest.js.
+</p>
 
 
-  <p align="center">Application build in Nest.js.</p>
+```mermaid
+graph LR
+
+A((Backend Nest.js))--
+-- TypeORM -->
+B{DB:PostgreSQL}
+
+```
+
 
 ## Read before to run
 
