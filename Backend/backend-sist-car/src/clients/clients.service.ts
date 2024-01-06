@@ -17,7 +17,7 @@ export class ClientsService {
     try {
       const client = this.clientRepository.create(createClientDto);
       await this.clientRepository.save([client]);
-      return { success: 'Register Insert with success!' };
+      return { success: 'Register Insert with success!', statusCode: 201 };
     } catch (error) {
       throw new HttpException(error.detail, HttpStatus.BAD_REQUEST);
     }
@@ -62,7 +62,7 @@ export class ClientsService {
   async update(id: number, updateClientDto: UpdateClientDto) {
     try {
       const client = await this.clientRepository.update(id, updateClientDto);
-      return { Update: 'Success with the  update!' };
+      return { Update: 'Success with the  update!', statusCode: 200 };
       return client;
     } catch (error) {
       throw new HttpException(error.detail, HttpStatus.BAD_REQUEST);
