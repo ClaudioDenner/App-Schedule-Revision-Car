@@ -21,6 +21,7 @@ async function bootstrap() {
   SwaggerModule.setup('/', app, document);
   app.enableCors({
     origin: '*' /*in production set whats domain can access this api */,
+    allowedHeaders: 'Content-Type,Authorization',
   });
 
   await app.listen(3000);
