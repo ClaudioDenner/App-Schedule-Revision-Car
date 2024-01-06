@@ -20,7 +20,7 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('/', app, document);
   app.enableCors({
-    origin: ['*'] /*in production set whats domain can access this api */,
+    origin: '*' /*in production set whats domain can access this api */,
   });
 
   await app.listen(3000);
