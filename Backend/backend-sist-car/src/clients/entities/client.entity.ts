@@ -1,4 +1,12 @@
-import { Entity, Column, PrimaryGeneratedColumn, Index } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  Index,
+  OneToMany,
+} from 'typeorm';
+import { Vehicle } from 'src/vehicles/entities/vehicle.entity';
+import { Schedule } from 'src/schedules/entities/schedule.entity';
 
 @Entity({
   name: 'clients',
@@ -24,4 +32,10 @@ export class Client {
 
   @Column()
   gender: string;
+
+  @OneToMany(() => Vehicle, (vehicle) => vehicle.client_id)
+  vehicles: Vehicle[];
+
+  @OneToMany(() => Schedule, (schedules) => schedules.client_id)
+  schedules: Schedule[];
 }
