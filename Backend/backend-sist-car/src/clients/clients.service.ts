@@ -29,7 +29,7 @@ export class ClientsService {
         .createQueryBuilder('clients')
         .leftJoinAndSelect('clients.vahicles', 'vehicles')
         .leftJoinAndSelect('clients.schedules', 'schedules')
-        .orderBy('schedules.id', 'DESC')
+        .orderBy('clients.id', 'DESC')
         .getMany();
       if (!client) {
         //return { fail: 'client not found' };
