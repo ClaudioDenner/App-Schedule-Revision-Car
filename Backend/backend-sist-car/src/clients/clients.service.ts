@@ -22,12 +22,15 @@ export class ClientsService {
       throw new HttpException(error.detail, HttpStatus.BAD_REQUEST);
     }
   }
-
+  //
   async findAll() {
     try {
-      const client = await this.clientRepository.find({
-        order: { id: 'DESC' },
-      });
+      const client = await this.clientRepository
+        .createQueryBuilder('clients')
+        .leftJoinAndSelect('clients.vahicles', 'vehicles')
+        .leftJoinAndSelect('clients.schedules', 'schedules')
+        .orderBy('schedules.id', 'DESC')
+        .getMany();
       if (!client) {
         //return { fail: 'client not found' };
         throw new Error('Clients not Found');
