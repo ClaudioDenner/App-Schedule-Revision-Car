@@ -40,7 +40,7 @@ export class ClientsService {
       if (error == 'Error: Clients not Found') {
         throw new HttpException('Clients not Found', HttpStatus.BAD_REQUEST);
       }
-      throw new HttpException(error.detail, HttpStatus.INTERNAL_SERVER_ERROR);
+      throw new HttpException(error, HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
 
