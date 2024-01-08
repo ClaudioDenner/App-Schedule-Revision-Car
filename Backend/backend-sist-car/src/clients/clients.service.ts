@@ -27,7 +27,7 @@ export class ClientsService {
     try {
       const client = await this.clientRepository
         .createQueryBuilder('clients')
-        .leftJoinAndSelect('clients.vahicles', 'vehicles')
+        .leftJoinAndSelect('clients.vehicles', 'vehicles')
         .leftJoinAndSelect('clients.schedules', 'schedules')
         .orderBy('clients.id', 'DESC')
         .getMany();
