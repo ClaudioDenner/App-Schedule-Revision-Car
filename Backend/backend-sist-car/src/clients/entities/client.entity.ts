@@ -33,9 +33,11 @@ export class Client {
   @Column()
   gender: string;
 
-  @OneToMany(() => Vehicle, (vehicle) => vehicle.client_id)
+  @OneToMany(() => Vehicle, (vehicle) => vehicle.client_id, { cascade: true })
   vehicles: Vehicle[];
 
-  @OneToMany(() => Schedule, (schedules) => schedules.client_id)
+  @OneToMany(() => Schedule, (schedules) => schedules.client_id, {
+    cascade: true,
+  })
   schedules: Schedule[];
 }
