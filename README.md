@@ -17,3 +17,10 @@ B((Backend Nest.js))--
 ```bash
 $ docker-compose up
 ```
+
+- Make sure to have the ports available: 80, 3000, 3002, 5432
+- The project will only ready after to console inform frontend "ready in ...milliseconds".
+
+
+
+
