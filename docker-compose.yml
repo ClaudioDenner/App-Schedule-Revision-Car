@@ -6,6 +6,8 @@ services:
       - backend
     build: ./frontend/frontend-sist-car
     container_name: frontend
+    environment:
+      NEXT_PUBLIC_BACKEND_URL: 'http://localhost:3000'
     ports:
       - 80:3002
 
