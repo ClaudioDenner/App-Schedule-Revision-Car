@@ -1,6 +1,16 @@
 
 services:
 
+  frontend:
+    depends_on:
+      - backend
+    build: ./frontend/frontend-sist-car
+    container_name: frontend
+    environment:
+      NEXT_PUBLIC_BACKEND_URL: 'backend'
+    ports:
+      - 80:3002
+
   backend:
     depends_on:
       - db_pgsql
