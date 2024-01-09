@@ -1,5 +1,6 @@
-FROM node:18-alpine
-WORKDIR /app
-COPY . .
+FROM node:slim
+WORKDIR /frontend
+COPY . /frontend
+EXPOSE 3002
 RUN npm install
-CMD ["npm","run","start"]
+CMD [ "npm", "run","start" ]
