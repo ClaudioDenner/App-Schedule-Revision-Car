@@ -20,7 +20,7 @@ $ docker-compose up
 
 - Make sure to have the ports available: 80, 3000, 3002, 5432
 - The project will only ready after to console inform frontend "ready in ...milliseconds".
-- after install and build and exec its containers, access 'http://localhost'
+- after to install and build and exec its containers, access 'http://localhost'
 
 
 
